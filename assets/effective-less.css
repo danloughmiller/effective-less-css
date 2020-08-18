@@ -1,0 +1,7 @@
+textarea[name=effective_less_css_textarea] {
+  display: none;
+}
+#effective_less_css_editor {
+  width: 100%;
+  min-height: 600px;
+}
