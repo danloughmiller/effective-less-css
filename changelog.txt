@@ -1,1 +1,5 @@
+1.0.1 - August 2020
+-------------------
+* Quotation marks in LESS code no longer produce escaped characters
+
 1.0.0 - Initial Release (August 2020)

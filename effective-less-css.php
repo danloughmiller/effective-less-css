@@ -87,7 +87,7 @@ class EffectiveLessCSSPlugin extends EffectiveLessCSS\EffectivePlugin
     public function onInit()
     {
         if (!empty($_REQUEST['effective_less_css_save']) && current_user_can('manage_options')) {
-            $this->setContent($_REQUEST['effective_less_css_textarea']);
+            $this->setContent(stripslashes($_REQUEST['effective_less_css_textarea']));
             $this->alert_updated=true;
         }
     }
