@@ -10,3 +10,7 @@ jobs:
       with:
         filename: 'effective-less-css.zip'
         exclusions: '*.git* /*node_modules/* .editorconfig'
+    - uses: actions/upload-artifact@master
+        with:
+          name: effective-less-css.zip
+          path: effective-less-css.zip
