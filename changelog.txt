@@ -1,5 +1,9 @@
-1.0.1 - August 2020
+1.0.6 - August 2020
 -------------------
 * Quotation marks in LESS code no longer produce escaped characters
+* Misc bug fixes
+* Plugin zip generated in github
 
-1.0.0 - Initial Release (August 2020)
+1.0.0 - August 2020
+-------------------
+* Initial Release
