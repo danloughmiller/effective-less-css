@@ -1,5 +1,6 @@
 {
     "require": {
-        "leafo/lessphp": "^0.5.0"
+        "leafo/lessphp": "^0.5.0",
+        "yahnis-elsts/plugin-update-checker": "^4.9"
     }
 }

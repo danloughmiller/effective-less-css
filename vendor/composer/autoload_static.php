@@ -6,6 +6,10 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit12cc8adf5cfe36e2fa53812d072e1370
 {
+    public static $files = array (
+        '241d2b5b9c1e680c0770b006b0271156' => __DIR__ . '/..' . '/yahnis-elsts/plugin-update-checker/load-v4p9.php',
+    );
+
     public static $classMap = array (
         'lessc' => __DIR__ . '/..' . '/leafo/lessphp/lessc.inc.php',
         'lessc_formatter_classic' => __DIR__ . '/..' . '/leafo/lessphp/lessc.inc.php',
