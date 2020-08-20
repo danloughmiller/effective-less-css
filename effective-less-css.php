@@ -3,7 +3,7 @@
 Plugin Name: Effective LessCSS
 Plugin URI: 
 Description: 
-Version: 1.0.17
+Version: 1.0.18
 Author: Daniel Loughmiller / Effect Web Agency
 Author URI: 
 Text Domain: 
