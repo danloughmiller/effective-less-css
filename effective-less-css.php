@@ -3,7 +3,7 @@
 Plugin Name: Effective LessCSS
 Plugin URI: 
 Description: 
-Version: 1.0.7
+Version: 1.0.14
 Author: Daniel Loughmiller / Effect Web Agency
 Author URI: 
 Text Domain: 
@@ -195,7 +195,7 @@ class EffectiveLessCSSPlugin extends EffectiveLessCSS\EffectivePlugin
             __FILE__,
             'effective-less-css'
         );
-        $myUpdateChecker->getVcsApi()->enableReleaseAssets();
+        $myUpdateChecker->getVcsApi()->enableReleaseAssets('effective-less-css-updater.zip');
     }
 }
 new EffectiveLessCSSPlugin();

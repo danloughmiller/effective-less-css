@@ -14,17 +14,33 @@ jobs:
           composer install --no-dev --optimize-autoloader
           mkdir effective-less-css
           ls | grep -v effective-less-css | xargs mv -t effective-less-css
+          mv effective-less-css.php effective-less-css
           mkdir build
-      - name: Create artifact
+      - name: Create updater artifact
         uses: montudor/action-zip@v0.1.0
         with:
-          args: zip -X -r build/effective-less-css.zip . -x *.git* build/\* build/ node_modules/\* .* "*/\.*" CODE_OF_CONDUCT.md CONTRIBUTING.md ISSUE_TEMPLATE.md PULL_REQUEST_TEMPLATE.md *.dist composer.* dev-helpers** build**
-      - name: Upload artifact
+          args: zip -X -r build/effective-less-css-updater.zip . -x *.git* build/\* build/ node_modules/\* .* "*/\.*" CODE_OF_CONDUCT.md CONTRIBUTING.md ISSUE_TEMPLATE.md PULL_REQUEST_TEMPLATE.md *.dist composer.* dev-helpers** build**
+      - name: Create installer artifact
+        uses: montudor/action-zip@v0.1.0
+        with:
+          args: zip -X -r build/effective-less-css.zip ./effective-less-css -x *.git* build/\* build/ node_modules/\* .* "*/\.*" CODE_OF_CONDUCT.md CONTRIBUTING.md ISSUE_TEMPLATE.md PULL_REQUEST_TEMPLATE.md *.dist composer.* dev-helpers** build**
+      - name: Upload updater artifact
+        uses: actions/upload-artifact@v2
+        with:
+            name: effective-less-css-updater
+            path: build/effective-less-css-updater.zip
+      - name: Upload updater to release
+        uses: JasonEtco/upload-to-release@master
+        with:
+          args: build/effective-less-css-updater.zip application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      - name: Upload installer artifact
         uses: actions/upload-artifact@v2
         with:
             name: effective-less-css
             path: build/effective-less-css.zip
-      - name: Upload to release
+      - name: Upload installer to release
         uses: JasonEtco/upload-to-release@master
         with:
           args: build/effective-less-css.zip application/zip
