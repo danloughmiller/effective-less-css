@@ -1,7 +1,8 @@
-1.0.7 - 8/19/2020
+1.1.0 - 8/19/2020
 -----------------
 * Adding autoupdater
 * Changelog is now in Markdown
+* Added readme file
 
 1.0.6 - 8/19/2020
 -----------------
