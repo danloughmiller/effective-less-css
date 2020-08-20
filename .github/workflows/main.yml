@@ -33,7 +33,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
       - name: Build installer
         run: |
-          cp -R ./effective-less-css/ .
+          cp -R effective-less-css/* .
           rm -rf effective-less-css
       - name: Create installer artifact
         uses: montudor/action-zip@v0.1.0
