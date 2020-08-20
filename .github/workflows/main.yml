@@ -14,7 +14,7 @@ jobs:
           composer install --no-dev --optimize-autoloader
           mkdir build
           mkdir build/effective-less-css
-          cp * ./build/effective-less-css/
+          cp -R * ./build/effective-less-css/
       - name: Create artifact
         uses: montudor/action-zip@v0.1.0
         with:
