@@ -13,7 +13,7 @@ jobs:
         run: |
           composer install --no-dev --optimize-autoloader
           mkdir effective-less-css
-          mv * effective-less-css
+          ls | grep -v effective-less-css | xargs mv -t effective-less-css
           mkdir build
       - name: Create artifact
         uses: montudor/action-zip@v0.1.0
