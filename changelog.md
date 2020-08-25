@@ -1,4 +1,4 @@
-#1.1.1
+#1.1.2
 - No longer creates duplicate zip file
 
 
