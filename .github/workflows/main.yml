@@ -24,10 +24,10 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
             name: effective-less-css-updater
-            path: build/effective-less-css-updater.zip
+            path: build/effective-less-css.zip
       - name: Upload updater to release
         uses: JasonEtco/upload-to-release@master
         with:
-          args: build/effective-less-css-updater.zip application/zip
+          args: build/effective-less-css.zip application/zip
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
