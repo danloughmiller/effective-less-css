@@ -3,7 +3,7 @@
 Plugin Name: Effective LessCSS
 Plugin URI: 
 Description: 
-Version: 1.1.2
+Version: 1.2
 Author: Daniel Loughmiller / Effect Web Agency
 Author URI: 
 Text Domain: 
@@ -120,6 +120,15 @@ class EffectiveLessCSSPlugin extends EffectiveLessCSS\EffectivePlugin
         return $file;
     }
 
+    function getLESSFile()
+    {
+        $upload = wp_get_upload_dir();
+        $basedir = $upload['basedir'];
+        $file = $basedir . '/effective_less_css.less';
+
+        return $file;
+    }
+
     function getCSSUrl()
     {
         $upload = wp_get_upload_dir();
@@ -136,8 +145,10 @@ class EffectiveLessCSSPlugin extends EffectiveLessCSS\EffectivePlugin
 
         $less = new lessc();
         try {
-            $compiled = $less->compile($content);
-            file_put_contents($file, $this->minify_css($compiled));
+            file_put_contents($this->getLESSFile(), $content);
+            $compiled = $less->compileFile($this->getLESSFile());
+            //$compiled = $less->compile($content);
+            file_put_contents($file, $compiled);
         } catch (exception $e) {
             $this->alert_compile_error = $e->getMessage();
             return false;

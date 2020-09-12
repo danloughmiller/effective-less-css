@@ -1,3 +1,8 @@
+#1.2
+- Minification disabled
+- LESS is now saved to a .less file before compile for more robust error reporting
+- Updated to newer less compiler
+
 #1.1.2
 - No longer creates duplicate zip file
 

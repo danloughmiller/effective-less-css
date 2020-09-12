@@ -1,6 +1,6 @@
 {
     "require": {
-        "leafo/lessphp": "^0.5.0",
-        "yahnis-elsts/plugin-update-checker": "^4.9"
+        "yahnis-elsts/plugin-update-checker": "^4.9",
+        "wikimedia/less.php": "^3.0.0"
     }
 }
