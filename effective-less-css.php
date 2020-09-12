@@ -30,6 +30,17 @@ class EffectiveLessCSSPlugin extends EffectiveLessCSS\EffectivePlugin
 
         add_action( 'admin_notices', array(&$this,'admin_notices'));
         add_action('plugins_loaded', array(&$this, 'plugins_loaded'));
+
+        add_action("wp_ajax_elc_save_less", array(&$this,"ajax_elc_save_less"));
+        add_action("wp_ajax_nopriv_elc_save_less", array(&$this,"ajax_elc_save_less"));
+    }
+
+    function ajax_elc_save_less() {
+        $this->setContent(stripslashes($_REQUEST['content']));
+        $this->alert_updated=true;
+
+        $this->admin_notices();
+        exit;
     }
 
     function onAdminMenu()
@@ -60,6 +71,8 @@ class EffectiveLessCSSPlugin extends EffectiveLessCSS\EffectivePlugin
         wp_enqueue_script( 'ace', EFFECTIVE_LESS_CSS_URL . '/vendor/ajaxorg/src-min/ace.js', array(), 1.0);
         wp_enqueue_script( 'effective-less-js', EFFECTIVE_LESS_CSS_URL . '/assets/effective-less.js', array('ace'), 1.0, true);
         wp_enqueue_style( 'effective-less-css', EFFECTIVE_LESS_CSS_URL . '/assets/effective-less.css');
+
+        wp_localize_script('effective-less-js', 'elessjs', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
     }
 
     function getContent($field='main_style')

@@ -14,6 +14,8 @@ class EffectivePlugin extends Singleton
         add_action('admin_menu', array(&$this, 'onAdminMenu'));
     }
 
+    
+
     public function onInit()
     {
         

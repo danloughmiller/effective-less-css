@@ -1,3 +1,6 @@
+#1.3
+- Saving is now handled via ajax
+
 #1.2
 - Minification disabled
 - LESS is now saved to a .less file before compile for more robust error reporting

@@ -23,3 +23,29 @@ if (jQuery('#effective_less_editor_form').length>0){
         }
     });
 }
+
+jQuery(document).ready( function () {
+    jQuery('#effective_less_editor_form').on('submit', function(e) {
+        e.preventDefault();
+        elc_save_ajax();
+    });
+});
+
+
+function elc_save_ajax()
+{
+    jQuery('.elc_notices').html('');
+    jQuery.ajax({
+        type: 'post',
+        dataType: 'html',
+        url : elessjs.ajax_url,
+        data: {
+            'action': 'elc_save_less',
+            'content': textarea.val()
+        },
+        success: function(response)
+        {
+            jQuery('.elc_notices').html(response);
+        }
+    });
+}
